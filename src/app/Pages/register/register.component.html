@@ -22,19 +22,37 @@
             placeholder="enter email"
             class="w-full p-3 bg-transparent outline-none border-b border-b-gray-600 cursor-pointer text-white font-extralight focus:ring-blue-500 hover:border-white outline-0"
           />
+          <small class="text-red-800 absolute end-2.5 bottom-2.5">
+            <div *ngIf="emailRequired">Email is required</div>
+            <div *ngIf="emailValid">Email is invalid</div>
+          </small>
         </div>
-        <input
-          type="password"
-          formControlName="password"
-          placeholder="enter enter password"
-          class="w-full p-3 bg-transparent outline-none border-b border-b-gray-600 cursor-pointer text-white font-extralight focus:ring-blue-500 hover:border-white outline-0"
-        />
-        <input
+        <div class="w-full relative">
+          <input
+            type="password"
+            formControlName="password"
+            placeholder="enter enter password"
+            class="w-full p-3 bg-transparent outline-none border-b border-b-gray-600 cursor-pointer text-white font-extralight focus:ring-blue-500 hover:border-white outline-0"
+          />
+
+          <small class="text-red-800 absolute end-2.5 bottom-2.5">
+            <div *ngIf="passwordRequired">can't be empty</div>
+          </small>
+        </div>
+
+        <div class="w-full relative">
+          <input
           type="password"
           formControlName="repeatPassword"
           placeholder="repeat password"
           class="w-full p-3 bg-transparent outline-none border-b border-b-gray-600 cursor-pointer text-white font-extralight focus:ring-blue-500 hover:border-white outline-0"
         />
+        <small class="text-red-800 absolute end-2.5 bottom-2.5">
+          <div *ngIf="passwordRepeat">Mismatch password</div>
+          
+        </small>
+        </div>
+        
         <button type="submit" class="bg-red-btn py-3 text-white mt-6 rounded">
           Create an Account
         </button>
