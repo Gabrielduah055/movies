@@ -39,7 +39,14 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     // console.log(this.register.getRawValue());
     if (this.isFormValid) {
-      
+      const email = this.register.get('email')?.value ?? '';
+      const password = this.register.get('password')?.value ?? '';
+
+      //storing the email and the password in localstorage
+      localStorage.setItem('email', email);
+      localStorage.setItem('password', password)
+
+
       this.router.navigateByUrl('/');
     }
   }
