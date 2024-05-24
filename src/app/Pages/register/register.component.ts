@@ -8,6 +8,9 @@ import {
   NonNullableFormBuilder,
 } from '@angular/forms';
 import { PasswordComponent } from '../../Components/password/password.component';
+import { emailValidator } from '../../Shared/Validators/email.validator';
+import { password } from '../../Shared/Validators/password.validator';
+import { passwordRepeat } from '../../Shared/Validators/password-repeat.validator copy';
 
 @Component({
   selector: 'app-register',
@@ -16,20 +19,29 @@ import { PasswordComponent } from '../../Components/password/password.component'
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
-export class RegisterComponent implements OnInit{
+export class RegisterComponent implements OnInit {
   fb = inject(FormBuilder);
+  router = inject(Router);
   register = this.fb.group({
-    email: ['', [Validators.required]],
-    password: ['', [Validators.required]],
+    email: ['', [Validators.required, emailValidator]],
+    password: ['', [Validators.required, password]],
     repeatPassword: ['', [Validators.required]],
   });
+  isFormValid = false;
 
   ngOnInit(): void {
-    
+    this.register.addValidators(passwordRepeat);
+    this.register.valueChanges.subscribe(
+      () => (this.isFormValid = this.register.valid)
+    );
   }
 
   onSubmit(): void {
-    console.log(this.register.getRawValue());
+    // console.log(this.register.getRawValue());
+    if (this.isFormValid) {
+      
+      this.router.navigateByUrl('/');
+    }
   }
 
   get emailRequired() {
@@ -39,5 +51,24 @@ export class RegisterComponent implements OnInit{
     );
   }
 
+  get emailValid() {
+    return (
+      this.register.get('email')?.touched &&
+      this.register.get('email')?.hasError('email')
+    );
+  }
 
+  get passwordRequired() {
+    return (
+      this.register.get('password')?.touched &&
+      this.register.get('password')?.hasError('required')
+    );
+  }
+
+  get passwordRepeat() {
+    return (
+      this.register.get('repeatPassword')?.touched &&
+      this.register.hasError('passwordMismatch')
+    );
+  }
 }
