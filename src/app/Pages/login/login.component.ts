@@ -5,11 +5,12 @@ import { Router } from '@angular/router';
 import { emailValidator } from '../../Shared/Validators/email.validator';
 import { password } from '../../Shared/Validators/password.validator';
 import { STORAGE_KEYS } from '../../Shared/constants';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule, NgIf],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })

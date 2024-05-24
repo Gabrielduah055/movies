@@ -1,6 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { NgIf } from '@angular/common';
+import { JsonPipe, NgIf } from '@angular/common';
+
+
 import {
   FormBuilder,
   Validators,
@@ -13,6 +15,7 @@ import { emailValidator } from '../../Shared/Validators/email.validator';
 import { password } from '../../Shared/Validators/password.validator';
 import { passwordRepeat } from '../../Shared/Validators/password-repeat.validator copy';
 import { STORAGE_KEYS } from '../../Shared/constants';
+import { User } from '../../Interface/auth';
 
 @Component({
   selector: 'app-register',
@@ -30,6 +33,7 @@ export class RegisterComponent implements OnInit {
     repeatPassword: ['', [Validators.required]],
   });
   isFormValid = false;
+  
 
   ngOnInit(): void {
     this.register.addValidators(passwordRepeat);
@@ -44,11 +48,24 @@ export class RegisterComponent implements OnInit {
       const email = this.register.get('email')?.value ?? '';
       const password = this.register.get('password')?.value ?? '';
 
+      const newUser:User = {email, password};
+      const usersJson = localStorage.getItem(STORAGE_KEYS.USERS);
+      let users = usersJson ? JSON.parse(usersJson) as User[]:[]
+
+      if(users.some(user => user.email === email)){
+        alert("This emial is already registered");
+        return
+      }
+
+      users.push(newUser);
+      localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(users))
+
       //storing the email and the password in localstorage
       localStorage.setItem(STORAGE_KEYS.EMAIL, email);
       localStorage.setItem(STORAGE_KEYS.PASSWORD, password)
 
 
+      
       this.router.navigateByUrl('/');
     }
   }
