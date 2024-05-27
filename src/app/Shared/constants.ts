@@ -1,4 +1,5 @@
 export const STORAGE_KEYS = {
     EMAIL: 'registeredEmail',
-    PASSWORD: 'registeredPassword'
+    PASSWORD: 'registeredPassword',
+    USERS:'usersJson'
 }
