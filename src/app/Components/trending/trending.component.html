@@ -1,9 +1,30 @@
-<div class="container">
-    <h3>Trending</h3>
-    <div class="relative w-screen flex">
-        <div class="card relative">
-            <img [src]='' alt="">
-
-        </div>
+<div class="container mx-auto px-4 py-6">
+  <h3 class="text-3xl mb-6 font-light">Trending</h3>
+  <div class="relative w-screen flex overflow-x-hidden">
+    <div
+      class="card relative w-96 h-48 rounded overflow-hidden flex-shrink-0 mr-4"
+      *ngFor="let movie of trendingMovies"
+    >
+      <img
+        [src]="movie.thumbnail.trending.large"
+        alt="{{ movie.title }}"
+        class="w-full object-cover h-full"
+      />
+      <div
+        class="flex content z-10 relative gap-2 mt-7 mx-4 font-extralight text-sm"
+      >
+        <span class="text-white">{{ movie.year }}</span>
+        <span class="text-white">{{ movie.category }}</span>
+        <span class="text-white">{{ movie.rating }}</span>
+      </div>
+      <h2 class="absolute bottom-1 left-4 z-10 font-bold text-white">
+        {{ movie.title }}
+      </h2>
+      <div
+        class="w-8 h-8 rounded-full bg-semi-dark-blue absolute top-5 right-4 flex items-center justify-center cursor-pointer"
+      >
+        <img src="../../../assets/icon-bookmark-empty.svg" alt="" class=" " />
+      </div>
     </div>
+  </div>
 </div>
