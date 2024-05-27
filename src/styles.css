@@ -1,6 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+
+:root {
+    --color-primary:#FC4747;  
+    --app-background:#10141E;
+    --sibebar-background:#5A698F;
+    --hover-color:#161D2F;
+    --white:#FFF;
+}
+
+body {
+    background-color: var(--app-background);
 }
