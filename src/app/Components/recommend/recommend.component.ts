@@ -16,7 +16,7 @@ export class RecommendComponent implements OnInit{
   getMovies:MoviesInterface[] = []
 
   ngOnInit(): void {
-    this.moviesService.getMovies().subscribe(
+    this.moviesService.getAllMovies().subscribe(
       (movies:MoviesInterface[]) => {
         this.getMovies = movies
       }

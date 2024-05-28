@@ -12,7 +12,7 @@ export class MoviesService {
 
   private http= inject(HttpClient)
 
-  getMovies():Observable<MoviesInterface[]> {
+  getAllMovies():Observable<MoviesInterface[]> {
     return this.http.get<MoviesInterface[]>(this.jsonUrl)
   }
 
@@ -21,4 +21,11 @@ export class MoviesService {
       map(movies => movies.filter(movie => movie.isTrending))
     )
   }
+
+  getMovies():Observable<MoviesInterface[]> {
+    return this.http.get<MoviesInterface[]>(this.jsonUrl).pipe(
+      map(movies => movies.filter(movie => movie.category === 'Movie'))
+    )
+  }
+  
 }

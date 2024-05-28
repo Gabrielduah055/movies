@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.moviesService.getMovies().subscribe(
+    this.moviesService.getAllMovies().subscribe(
       (data : MoviesInterface[]) => {
         this.movies = data;
         console.log(this.movies)
