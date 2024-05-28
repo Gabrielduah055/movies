@@ -1,12 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { MoviesInterface } from '../../Interface/movies';
+import { MoviesService } from '../../Services/movies.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-recommend',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './recommend.component.html',
   styleUrl: './recommend.component.css'
 })
-export class RecommendComponent {
+export class RecommendComponent implements OnInit{
 
+  moviesService = inject(MoviesService)
+  getMovies:MoviesInterface[] = []
+
+  ngOnInit(): void {
+    this.moviesService.getMovies().subscribe(
+      (movies:MoviesInterface[]) => {
+        this.getMovies = movies
+      }
+    )
+  }
 }
