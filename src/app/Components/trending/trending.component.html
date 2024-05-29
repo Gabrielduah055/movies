@@ -1,6 +1,6 @@
 <div class="container mx-auto px-4 py-6">
   <h3 class="text-3xl mb-6 font-light">Trending</h3>
-  <div class="relative w-screen flex overflow-x-hidden">
+  <div class="relative w-screen flex overflow-x-hidden cursor-pointer">
     <div
       class="card relative w-96 h-48 rounded overflow-hidden flex-shrink-0 mr-4"
       *ngFor="let movie of trendingMovies"
@@ -10,12 +10,18 @@
         alt="{{ movie.title }}"
         class="w-full object-cover h-full"
       />
+      <div class=" absolute inset-0 bg-black opacity-25"></div>
       <div
         class="flex content z-10 relative gap-2 mt-7 mx-4 font-extralight text-sm"
       >
-        <span class="text-white">{{ movie.year }}</span>
-        <span class="text-white">{{ movie.category }}</span>
-        <span class="text-white">{{ movie.rating }}</span>
+      <ul class="flex gap-3 font-normal text-sm text-semi-grayish-blue py-2 w-full">
+        <li>{{movie.year}} </li>
+        <li class="flex gap-1 items-center">
+          <img [src]='movie.categoryImage' alt="">  
+          {{movie.category}}
+        </li>
+        <li>{{movie.rating}}</li>
+    </ul>
       </div>
       <h2 class="absolute bottom-1 left-4 z-10 font-bold text-white">
         {{ movie.title }}
@@ -25,6 +31,12 @@
       >
         <img src="../../../assets/icon-bookmark-empty.svg" alt="" class=" " />
       </div>
+
+      <div class="absolute play flex items-center justify-between gap-3  rounded-3xl w-26 px-3 py-1 transition-all opacity-0">
+        <img src="../../../assets/icon-play.svg" alt="">
+        <span class="text-white opacity-100">Play</span>
+      </div>
     </div>
+    
   </div>
 </div>

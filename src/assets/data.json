@@ -14,6 +14,7 @@
     },
     "year": 2019,
     "category": "Movie",
+    "categoryImage":"./assets/icon-category-movie.svg",
     "rating": "PG",
     "isBookmarked": false,
     "isTrending": true
@@ -33,6 +34,7 @@
     },
     "year": 2021,
     "category": "Movie",
+    "categoryImage":"./assets/icon-category-movie.svg",
     "rating": "PG",
     "isBookmarked": false,
     "isTrending": true
@@ -52,6 +54,7 @@
     },
     "year": 2019,
     "category": "TV Series",
+    "categoryImage":"./assets/icon-category-tv.svg",
     "rating": "E",
     "isBookmarked": false,
     "isTrending": true
@@ -71,6 +74,7 @@
     },
     "year": 2021,
     "category": "Movie",
+    "categoryImage":"./assets/icon-category-movie.svg",
     "rating": "18+",
     "isBookmarked": false,
     "isTrending": true
@@ -90,6 +94,7 @@
     },
     "year": 2018,
     "category": "TV Series",
+    "categoryImage":"./assets/icon-category-tv.svg",
     "rating": "PG",
     "isBookmarked": true,
     "isTrending": true
@@ -105,6 +110,7 @@
     },
     "year": 2019,
     "category": "Movie",
+    "categoryImage":"./assets/icon-category-movie.svg",
     "rating": "E",
     "isBookmarked": false,
     "isTrending": false
@@ -120,6 +126,7 @@
     },
     "year": 2019,
     "category": "TV Series",
+    "categoryImage":"./assets/icon-category-tv.svg",
     "rating": "PG",
     "isBookmarked": false,
     "isTrending": false
@@ -135,6 +142,7 @@
     },
     "year": 2017,
     "category": "Movie",
+    "categoryImage":"./assets/icon-category-movie.svg",
     "rating": "18+",
     "isBookmarked": true,
     "isTrending": false
@@ -150,6 +158,7 @@
     },
     "year": 2019,
     "category": "Movie",
+    "categoryImage":"./assets/icon-category-movie.svg",
     "rating": "E",
     "isBookmarked": false,
     "isTrending": false
@@ -165,6 +174,7 @@
     },
     "year": 2016,
     "category": "TV Series",
+    "categoryImage":"./assets/icon-category-tv.svg",
     "rating": "PG",
     "isBookmarked": false,
     "isTrending": false
@@ -180,6 +190,7 @@
     },
     "year": 2016,
     "category": "TV Series",
+    "categoryImage":"./assets/icon-category-tv.svg",
     "rating": "18+",
     "isBookmarked": false,
     "isTrending": false
@@ -195,6 +206,7 @@
     },
     "year": 2017,
     "category": "Movie",
+    "categoryImage":"./assets/icon-category-movie.svg",
     "rating": "E",
     "isBookmarked": false,
     "isTrending": false
@@ -210,6 +222,7 @@
     },
     "year": 2016,
     "category": "TV Series",
+    "categoryImage":"./assets/icon-category-tv.svg",
     "rating": "PG",
     "isBookmarked": false,
     "isTrending": false
@@ -225,6 +238,7 @@
     },
     "year": 2015,
     "category": "TV Series",
+    "categoryImage":"./assets/icon-category-tv.svg",
     "rating": "E",
     "isBookmarked": true,
     "isTrending": false
@@ -240,6 +254,7 @@
     },
     "year": 2017,
     "category": "Movie",
+    "categoryImage":"./assets/icon-category-movie.svg",
     "rating": "PG",
     "isBookmarked": true,
     "isTrending": false
@@ -255,6 +270,7 @@
     },
     "year": 2018,
     "category": "TV Series",
+    "categoryImage":"./assets/icon-category-tv.svg",
     "rating": "18+",
     "isBookmarked": false,
     "isTrending": false
@@ -270,6 +286,7 @@
     },
     "year": 2015,
     "category": "Movie",
+    "categoryImage":"./assets/icon-category-movie.svg",
     "rating": "PG",
     "isBookmarked": false,
     "isTrending": false
@@ -285,6 +302,7 @@
     },
     "year": 2021,
     "category": "Movie",
+    "categoryImage":"./assets/icon-category-movie.svg",
     "rating": "PG",
     "isBookmarked": true,
     "isTrending": false
@@ -300,6 +318,7 @@
     },
     "year": 2017,
     "category": "Movie",
+    "categoryImage":"./assets/icon-category-movie.svg",
     "rating": "18+",
     "isBookmarked": true,
     "isTrending": false
@@ -315,6 +334,7 @@
     },
     "year": 2017,
     "category": "Movie",
+    "categoryImage":"./assets/icon-category-movie.svg",
     "rating": "E",
     "isBookmarked": false,
     "isTrending": false
@@ -330,6 +350,7 @@
     },
     "year": 2013,
     "category": "TV Series",
+    "categoryImage":"./assets/icon-category-tv.svg",
     "rating": "PG",
     "isBookmarked": false,
     "isTrending": false
@@ -345,6 +366,7 @@
     },
     "year": 2017,
     "category": "Movie",
+    "categoryImage":"./assets/icon-category-movie.svg",
     "rating": "E",
     "isBookmarked": true,
     "isTrending": false
@@ -360,6 +382,7 @@
     },
     "year": 2018,
     "category": "TV Series",
+    "categoryImage":"./assets/icon-category-tv.svg",
     "rating": "PG",
     "isBookmarked": false,
     "isTrending": false
@@ -375,6 +398,7 @@
     },
     "year": 2016,
     "category": "TV Series",
+    "categoryImage":"./assets/icon-category-tv.svg",
     "rating": "E",
     "isBookmarked": true,
     "isTrending": false
@@ -390,6 +414,7 @@
     },
     "year": 2020,
     "category": "TV Series",
+    "categoryImage":"./assets/icon-category-tv.svg",
     "rating": "PG",
     "isBookmarked": false,
     "isTrending": false
@@ -405,6 +430,7 @@
     },
     "year": 2016,
     "category": "TV Series",
+    "categoryImage":"./assets/icon-category-tv.svg",
     "rating": "PG",
     "isBookmarked": false,
     "isTrending": false
@@ -420,6 +446,7 @@
     },
     "year": 2017,
     "category": "Movie",
+    "categoryImage":"./assets/icon-category-movie.svg",
     "rating": "18+",
     "isBookmarked": true,
     "isTrending": false
@@ -435,6 +462,7 @@
     },
     "year": 2018,
     "category": "TV Series",
+    "categoryImage":"./assets/icon-category-tv.svg",
     "rating": "18+",
     "isBookmarked": false,
     "isTrending": false
@@ -450,6 +478,7 @@
     },
     "year": 2017,
     "category": "Movie",
+    "categoryImage":"./assets/icon-category-movie.svg",
     "rating": "PG",
     "isBookmarked": true,
     "isTrending": false

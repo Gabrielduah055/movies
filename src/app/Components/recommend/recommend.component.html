@@ -1,25 +1,33 @@
 <div class="container mx-auto px-4 h-full">
   <h3 class="text-3xl mb-6 font-light">Recommended for you</h3>
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-    <div class="card w-72 rounded relative" *ngFor="let movies of getMovies">
-        <div class="overflow-hidden w-full">
+    <div class="card w-72 rounded relative cursor-pointer" *ngFor="let movies of getMovies">
+        <div class="overflow-hidden w-full relative">
             <img
                 [src]="movies.thumbnail.regular.large"
                 [alt]="movies.thumbnail.regular"
             />
+            <div class="absolute inset-0 bg-black bg-opacity-25"></div>
         </div>
         <div class="flex flex-col">
-            <div class="flex gap-3 font-extralight text-sm">
-                <span>{{movies.year}}</span>
-                <span>{{movies.category}}</span>
-                <span>{{movies.rating}}</span>
-            </div>
+            <ul class="flex gap-3 font-normal text-sm text-semi-grayish-blue py-2 w-full">
+                <li>{{movies.year}} </li>
+                <li class="flex gap-1 items-center">
+                  <img [src]='movies.categoryImage' alt="">  
+                  {{movies.category}}
+                </li>
+                <li>{{movies.rating}}</li>
+            </ul>
             <div class="block font-semibold">
                 {{movies.title}}
             </div>
         </div>
         <div class="w-8 h-8 rounded-full bg-semi-dark-blue absolute top-5 right-4 flex items-center justify-center cursor-pointer">
             <img src="../../../assets/icon-bookmark-empty.svg" alt="" class=" " />
+        </div>
+        <div class="absolute play flex items-center justify-between gap-3  rounded-3xl w-26 px-3 py-1 transition-all opacity-0">
+            <img src="../../../assets/icon-play.svg" alt="">
+            <span class="text-white opacity-100">Play</span>
         </div>
    </div>
 </div>

@@ -13,6 +13,7 @@ export interface MoviesInterface {
     };
     year: number;
     category: string;
+    categoryImage?: string;
     rating: string;
     isBookmarked: boolean;
     isTrending: boolean;
