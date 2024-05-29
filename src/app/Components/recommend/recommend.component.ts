@@ -22,4 +22,7 @@ export class RecommendComponent implements OnInit{
       }
     )
   }
+  toggleBookmark(movie: MoviesInterface): void {
+    movie.isBookmarked = !movie.isBookmarked; // Toggle the bookmark status
+  }
 }
