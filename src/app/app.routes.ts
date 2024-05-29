@@ -3,6 +3,8 @@ import { LoginComponent } from './Pages/login/login.component';
 import { RegisterComponent } from './Pages/register/register.component';
 import { HomeComponent } from './Pages/home/home.component';
 import { MoviesComponent } from './Pages/movies/movies.component';
+import { SeriesComponent } from './Pages/series/series.component';
+import { BookmarkComponent } from './Pages/bookmark/bookmark.component';
 
 export const routes: Routes = [
     {
@@ -27,5 +29,15 @@ export const routes: Routes = [
         path:'movies',
         component:MoviesComponent,
         title:'Movies'
-    }
+    },
+    {
+        path:'series',
+        component:SeriesComponent,
+        title:'Series'
+    },
+    {
+        path:'bookmark',
+        component:BookmarkComponent,
+        title:'Bookmark'
+    },
 ];

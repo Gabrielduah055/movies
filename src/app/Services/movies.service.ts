@@ -27,5 +27,11 @@ export class MoviesService {
       map(movies => movies.filter(movie => movie.category === 'Movie'))
     )
   }
+
+  getSeris():Observable<MoviesInterface[]> {
+    return this.http.get<MoviesInterface[]>(this.jsonUrl).pipe(
+      map(movies => movies.filter(movie => movie.category ==='TV Series'))
+    )
+  }
   
 }

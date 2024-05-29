@@ -1,28 +1,30 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { SidebarComponent } from '../../Components/sidebar/sidebar.component';
 import { SearchBarComponent } from '../../Components/search-bar/search-bar.component';
+import { CommonModule } from '@angular/common';
 import { MoviesInterface } from '../../Interface/movies';
 import { MoviesService } from '../../Services/movies.service';
-import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-movies',
+  selector: 'app-series',
   standalone: true,
   imports: [SidebarComponent, SearchBarComponent, CommonModule],
-  templateUrl: './movies.component.html',
-  styleUrl: './movies.component.css'
+  templateUrl: './series.component.html',
+  styleUrl: './series.component.css'
 })
-export class MoviesComponent implements OnInit{
+export class SeriesComponent implements OnInit{
   movieService = inject(MoviesService);
-  moviesGenre :MoviesInterface[] = []
+  series : MoviesInterface[] = []
 
   ngOnInit(): void {
-    this.movieService .getMovies().subscribe(
+    
+    this.movieService .getSeris().subscribe(
       (movie:MoviesInterface[]) => {
-        this.moviesGenre = movie;
+        this.series = movie;
         console.log(movie)
       }, (error) => {
           console.log(error)
       });
   }
+
 }
