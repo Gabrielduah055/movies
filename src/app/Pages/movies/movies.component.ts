@@ -10,19 +10,19 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [SidebarComponent, SearchBarComponent, CommonModule],
   templateUrl: './movies.component.html',
-  styleUrl: './movies.component.css'
+  styleUrl: './movies.component.css',
 })
-export class MoviesComponent implements OnInit{
+export class MoviesComponent implements OnInit {
   movieService = inject(MoviesService);
-  moviesGenre :MoviesInterface[] = []
+  moviesGenre: MoviesInterface[] = [];
 
   ngOnInit(): void {
-    this.movieService .getMovies().subscribe(
-      (movie:MoviesInterface[]) => {
+    this.movieService.getMovies().subscribe({
+      next: (movie: MoviesInterface[]) => {
         this.moviesGenre = movie;
-        console.log(movie)
-      }, (error) => {
-          console.log(error)
-      });
+        console.log(movie);
+      },
+      error: (error) => console.log(error),
+    });
   }
 }

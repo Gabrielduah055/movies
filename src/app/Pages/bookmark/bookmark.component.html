@@ -5,6 +5,9 @@
         <div class="container px-4 h-full">
             <h3 class="text-3xl mb-6 font-light">BookMarked</h3>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              <div class="text-3xl mb-6 font-light" *ngIf="bookMarked.length === 0">
+                No Bookmarked Movies
+              </div>
               <div
                 class="card w-72 rounded relative cursor-pointer"
                 *ngFor="let movies of bookMarked"

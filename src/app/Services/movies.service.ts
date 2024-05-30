@@ -67,10 +67,10 @@ export class MoviesService {
     }
   }
   
-  removeBookMark(movieId:string):void{
+  removeBookmark(movieId:string):void{
     let currentBookmarks = this.getBookMarksFromLocalStorage() || [];
-    currentBookmarks = currentBookmarks.filter(movie => movie.id !== movieId);
-    this.saveBookmarksToLocalStorage(currentBookmarks)
+    const updatedBookmarks = currentBookmarks.filter(movie => movie.id !== movieId);
+    this.saveBookmarksToLocalStorage(updatedBookmarks)
   
   }
 }
