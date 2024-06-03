@@ -8,7 +8,7 @@ import { map } from 'rxjs';
   providedIn: 'root'
 })
 export class MoviesService {
-  private jsonUrl = 'assets/data.json';
+  public jsonUrl = 'assets/data.json';
   private bookmarkKey = 'bookmarkedMovies';
   private http = inject(HttpClient);
 
@@ -28,14 +28,26 @@ export class MoviesService {
 
   getMovies():Observable<MoviesInterface[]> {
     return this.http.get<MoviesInterface[]>(this.jsonUrl).pipe(
-      map(movies => movies.filter(movie => movie.category === 'Movie'))
-    )
+      map(movies => {
+        const localBookmarks = this.getBookMarksFromLocalStorage() || [];
+        return movies.map(movie => ({
+          ...movie,
+          isBookmarked: localBookmarks.some(b => b.id === movie.id)
+        })).filter(movie => movie.category === 'Movie');
+      })
+    );
   }
 
-  getSeris():Observable<MoviesInterface[]> {
+  getSeris(): Observable<MoviesInterface[]> {
     return this.http.get<MoviesInterface[]>(this.jsonUrl).pipe(
-      map(movies => movies.filter(movie => movie.category ==='TV Series'))
-    )
+      map(movies => {
+        const localBookmarks = this.getBookMarksFromLocalStorage() || [];
+        return movies.map(movie => ({
+          ...movie,
+          isBookmarked: localBookmarks.some(b => b.id === movie.id)
+        })).filter(movie => movie.category === 'TV Series');
+      })
+    );
   }
 
 
@@ -67,7 +79,7 @@ export class MoviesService {
     }
   }
   
-  removeBookmark(movieId:string):void{
+  removeBookmark(movieId:number):void{
     let currentBookmarks = this.getBookMarksFromLocalStorage() || [];
     const updatedBookmarks = currentBookmarks.filter(movie => movie.id !== movieId);
     this.saveBookmarksToLocalStorage(updatedBookmarks)

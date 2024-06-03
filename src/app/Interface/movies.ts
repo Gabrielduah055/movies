@@ -17,5 +17,5 @@ export interface MoviesInterface {
     rating: string;
     isBookmarked: boolean;
     isTrending: boolean;
-    id: string;
+    id: number;
   }

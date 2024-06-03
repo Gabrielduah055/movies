@@ -1,35 +1,47 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { SidebarComponent } from '../../Components/sidebar/sidebar.component';
-import { MovieListComponent } from '../../Components/movie-list/movie-list.component';
-import { SearchBarComponent } from '../../Components/search-bar/search-bar.component';
-
-import { MoviesService } from '../../Services/movies.service';
 import { MoviesInterface } from '../../Interface/movies';
-import { HttpClientModule } from '@angular/common/http';
+import { MoviesService } from '../../Services/movies.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { SidebarComponent } from '../../Components/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SidebarComponent, MovieListComponent, SearchBarComponent,HttpClientModule],
+  imports: [CommonModule, FormsModule, SidebarComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
-  moviesService = inject(MoviesService)
-  
-  movies:MoviesInterface[] = [];
+  movieService = inject(MoviesService);
+  getMovies: MoviesInterface[] = [];
+  filteredMovies: MoviesInterface[] = [];
 
-
+  searchQuery: string = '';
 
   ngOnInit(): void {
-    this.moviesService.getAllMovies().subscribe(
-      (data : MoviesInterface[]) => {
-        this.movies = data;
-        console.log(this.movies)
+    this.movieService.getAllMovies().subscribe({
+      next: (movies: MoviesInterface[]) => {
+        this.getMovies = movies;
+        this.filteredMovies = movies;
       },
-      (error) => {
-        console.error('Error fetching movies', error)
-      }
-    )
+      error: (error) => console.log(error),
+    });
+  }
+
+  toggleBookmark(movie: MoviesInterface): void {
+    movie.isBookmarked = !movie.isBookmarked; // Toggle the bookmark status
+
+    if(movie.isBookmarked) {
+      this.movieService.addBookmark(movie)
+    } else {
+      this.movieService.removeBookmark(movie.id);
+    }
+  }
+
+  filterMovies(): void {
+    this.filteredMovies = this.getMovies.filter(movie =>
+      movie.title.toLowerCase().includes(this.searchQuery.toLowerCase())
+    );
   }
 }
