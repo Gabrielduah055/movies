@@ -19,7 +19,7 @@ export class MoviesComponent implements OnInit {
 
   searchQuery:string = '';
 
-  bookMarked: MoviesInterface[] = [];
+  bookMarked: MoviesInterface[] = []
 
 
   ngOnInit(): void {
