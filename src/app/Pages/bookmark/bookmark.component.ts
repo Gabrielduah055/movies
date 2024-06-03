@@ -38,7 +38,7 @@ export class BookmarkComponent implements OnInit{
   }
 
   toggleBookmark(movie: MoviesInterface): void {
-    movie.isBookmarked = !movie.isBookmarked; // Toggle the bookmark status
+    movie.isBookmarked = !movie.isBookmarked; 
 
     if(movie.isBookmarked) {
       this.movieService.addBookmark(movie)

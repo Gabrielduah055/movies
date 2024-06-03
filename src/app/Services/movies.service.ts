@@ -66,6 +66,15 @@ export class MoviesService {
   }
 
 
+  searchMovies(query:string):Observable<MoviesInterface[]> {
+      return this.getAllMovies().pipe(
+        map(movies => movies.filter(movie => {
+          movie.title.toLocaleLowerCase().includes(query.toLocaleLowerCase())
+        }))
+      )
+  }
+
+
   private getBookMarksFromLocalStorage():MoviesInterface[] | null {
     const bookmarks = localStorage.getItem(this.bookmarkKey);
     return bookmarks ? JSON.parse(bookmarks) : null;

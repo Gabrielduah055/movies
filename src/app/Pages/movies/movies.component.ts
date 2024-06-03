@@ -19,6 +19,9 @@ export class MoviesComponent implements OnInit {
 
   searchQuery:string = '';
 
+  bookMarked: MoviesInterface[] = [];
+
+
   ngOnInit(): void {
     this.movieService.getMovies().subscribe({
       next: (movie: MoviesInterface[]) => {
@@ -28,16 +31,26 @@ export class MoviesComponent implements OnInit {
       },
       error: (error) => console.log(error),
     });
+    this.movieService.getBookmarkMovies().subscribe(
+      (bookMarkedMovies:MoviesInterface[]) => {
+        this.bookMarked = bookMarkedMovies
+      }
+    )
     
   }
 
-  toggleBookmark(movie: MoviesInterface): void {
-    movie.isBookmarked = !movie.isBookmarked; // Toggle the bookmark status
+  isbookMarked(movie:MoviesInterface):boolean {
+    return this.bookMarked.some(m => m.id === movie.id)
+  }
+ 
 
-    if(movie.isBookmarked) {
-      this.movieService.addBookmark(movie)
-    } else {
+  toggleBookmark(movie: MoviesInterface): void {
+    if(this.isbookMarked(movie)) {
       this.movieService.removeBookmark(movie.id);
+      this.bookMarked = this.bookMarked.filter(m => m.id !== movie.id)
+    } else {
+      this.movieService.addBookmark(movie);
+      this.bookMarked.push(movie)
     }
   }
 
