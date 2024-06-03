@@ -277,7 +277,6 @@ describe('MoviesService', () => {
       expect(results[0].title).toContain('Mock Movie 1')
     })
   })
-
  
 });
 
