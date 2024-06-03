@@ -68,9 +68,9 @@ export class MoviesService {
 
   searchMovies(query:string):Observable<MoviesInterface[]> {
       return this.getAllMovies().pipe(
-        map(movies => movies.filter(movie => {
+        map(movies => movies.filter(movie => 
           movie.title.toLocaleLowerCase().includes(query.toLocaleLowerCase())
-        }))
+        ))
       )
   }
 

@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { MoviesService } from './movies.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing'
 import { MoviesInterface } from '../Interface/movies';
-import { JsonPipe } from '@angular/common';
+import { of } from 'rxjs';
 
 describe('MoviesService', () => {
   let service: MoviesService;
@@ -16,6 +16,7 @@ describe('MoviesService', () => {
     });
     service = TestBed.inject(MoviesService);
     httpTestingController = TestBed.inject(HttpTestingController)
+    localStorage.clear();
   });
 
   afterEach(() => {
@@ -222,6 +223,62 @@ describe('MoviesService', () => {
     const bookmarks = service['getBookMarksFromLocalStorage']();
     expect(bookmarks).toBeNull()
   })
+
+  
+  it('should search filter movies by title based on the provided search items', () => {
+    const searchItem = 'Mock'
+    const allMovies : MoviesInterface[] = [
+      {
+        id: 1,
+        title: 'Mock Movie 1',
+        thumbnail: {
+          trending: {
+            small: '',
+            large: ''
+          },
+          regular: {
+            small: '',
+            medium: '',
+            large: ''
+          }
+        },
+        year: 0,
+        category: '',
+        rating: '',
+        isBookmarked: false,
+        isTrending: false
+      },
+      {
+        id: 2,
+        title: 'Mock Movie 2',
+        thumbnail: {
+          trending: {
+            small: '',
+            large: ''
+          },
+          regular: {
+            small: '',
+            medium: '',
+            large: ''
+          }
+        },
+        year: 0,
+        category: '',
+        rating: '',
+        isBookmarked: true,
+        isTrending: true
+    }
+    ]
+
+    spyOn(service, 'getAllMovies').and.returnValue(of(allMovies))
+
+    service.searchMovies('Mock Movie 1').subscribe((results) => {
+      expect(results.length).toBe(1);
+      expect(results[0].title).toContain('Mock Movie 1')
+    })
+  })
+
+ 
 });
 
 
