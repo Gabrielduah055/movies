@@ -10,7 +10,7 @@ import { STORAGE_KEYS } from '../../Shared/constants';
 import { User } from '../../Interface/auth';
 
 import { RegisterComponent } from './register.component';
-import { LoginComponent } from '../login/login.component';
+
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -19,7 +19,7 @@ describe('RegisterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RegisterComponent, RouterTestingModule, RegisterComponent, PasswordComponent],
+      imports: [RegisterComponent, RouterTestingModule, PasswordComponent],
       providers:[]
     })
     .compileComponents();
