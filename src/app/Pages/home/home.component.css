@@ -1,0 +1,15 @@
+.content {
+    top: -5rem;
+    color: red;
+}
+
+.play {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(220, 220, 220, 0.265);
+}
+
+.card:hover .play {
+    opacity: 1;
+  }

@@ -1,7 +1,7 @@
-<div class="relative flex text-white h-screen max-w-full container p-7 gap-5">
+<div class="relative flex flex-col lg:flex-row md:flex-col text-white h-screen max-w-full px-4 gap-5" >
     <app-sidebar></app-sidebar>
-    <div class="w-full">
-      <div class="container flex w-full p-4 gap-3 items-center">
+    <div class="w-full xl:w-[90%]">
+      <div class=" flex md:flex-row w-full p-4 gap-3 items-center">
         <img
           src="../../../assets/icon-search.svg"
           alt=""
@@ -16,17 +16,17 @@
         />
       </div>
      
-      <div class="container px-4 h-full">
+      <div class=" px-4 h-full">
         <app-trending></app-trending>
-        <h3 class="text-3xl mb-6 font-light">Recommended for you</h3>
+        <h3 class="lg:text-3xl mb-6 font-light">Recommended for you</h3>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          <div class="card w-72 rounded relative cursor-pointer" *ngFor="let movie of filteredMovies">
+          <div class="card w-50 rounded relative cursor-pointer" *ngFor="let movie of filteredMovies">
             <div class="overflow-hidden w-full relative">
-              <img [src]="movie.thumbnail.regular.large" [alt]="movie.thumbnail.regular" />
+              <img [src]="movie.thumbnail.regular.large" [alt]="movie.thumbnail.regular" class="overflow-hidden"/>
               <div class="absolute inset-0 bg-black bg-opacity-25"></div>
             </div>
             <div class="flex flex-col">
-              <ul class="flex gap-3 font-normal text-sm text-semi-grayish-blue py-2 w-full">
+              <ul class="flex gap-1 text-xs lg:gap-3 font-normal lg:text-sm text-semi-grayish-blue py-2 w-full">
                 <li>{{ movie.year }}</li>
                 <li class="flex gap-1 items-center">
                   <img [src]="movie.categoryImage" alt="" />
@@ -34,10 +34,10 @@
                 </li>
                 <li>{{ movie.rating }}</li>
               </ul>
-              <div class="block font-semibold">{{ movie.title }}</div>
+              <div class="block text-sm lg:font-semibold">{{ movie.title }}</div>
             </div>
-            <div class="w-8 h-8 rounded-full bg-semi-dark-blue absolute top-5 right-4 flex items-center justify-center cursor-pointer" (click)="toggleBookmark(movie)">
-              <img [src]="movie.isBookmarked ? 'assets/icon-bookmark-full.svg' : 'assets/icon-bookmark-empty.svg'" alt="" class="" />
+            <div class="lg:w-8 lg:h-8 w-5 h-5 rounded-full bg-semi-dark-blue absolute top-1 right-1 lg:top-5 lg:right-4 flex items-center justify-center cursor-pointer" (click)="toggleBookmark(movie)">
+              <img [src]="movie.isBookmarked ? 'assets/icon-bookmark-full.svg' : 'assets/icon-bookmark-empty.svg'" alt="" class="w-50%" />
             </div>
             <div class="absolute play flex items-center justify-between gap-3 rounded-3xl w-26 px-3 py-1 transition-all opacity-0">
               <img src="../../../assets/icon-play.svg" alt="" />

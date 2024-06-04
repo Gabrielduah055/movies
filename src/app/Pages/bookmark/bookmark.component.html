@@ -1,4 +1,4 @@
-<div class="relative flex text-white h-screen max-w-full container p-7 gap-5">
+<div class="relative flex lg:flex-row md:flex-col text-white h-screen max-w-full px-4 gap-5">
     <app-sidebar></app-sidebar>
     <div class="w-full">
       <div class="container flex w-full p-4 gap-3 items-center">
@@ -22,7 +22,7 @@
                 No Bookmarked Movies
               </div>
               <div
-                class="card w-72 rounded relative cursor-pointer"
+                class="card w-50 rounded relative cursor-pointer"
                 *ngFor="let movies of filteredBookmarked"
               >
                 <div class="overflow-hidden w-full relative">
@@ -34,7 +34,7 @@
                 </div>
                 <div class="flex flex-col">
                   <ul
-                    class="flex gap-3 font-normal text-sm text-semi-grayish-blue py-2 w-full"
+                    class="flex gap-1 text-xs lg:gap-3 font-normal lg:text-sm text-semi-grayish-blue py-2 w-full"
                   >
                     <li>{{ movies.year }}</li>
                     <li class="flex gap-1 items-center">
@@ -48,7 +48,7 @@
                   </div>
                 </div>
                 <div
-                  class="w-8 h-8 rounded-full bg-semi-dark-blue absolute top-5 right-4 flex items-center justify-center cursor-pointer" (click)="toggleBookmark(movies)"
+                  class="lg:w-8 lg:h-8 w-8 h-8 rounded-full bg-semi-dark-blue absolute top-1 right-1 lg:top-5 lg:right-4 flex items-center justify-center cursor-pointer" (click)="toggleBookmark(movies)"
                 >
                   <img [src]="movies.isBookmarked ? 'assets/icon-bookmark-full.svg' : 'assets/icon-bookmark-empty.svg'" alt="" class=" " />
                 </div>
