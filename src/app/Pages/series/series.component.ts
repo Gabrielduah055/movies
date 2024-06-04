@@ -18,6 +18,8 @@ export class SeriesComponent implements OnInit{
   filteredSeries: MoviesInterface[] =[]
   searchQuery:string = ''
 
+  bookMarked: MoviesInterface[] = []
+
   ngOnInit(): void {
     
     this.movieService .getSeris().subscribe({

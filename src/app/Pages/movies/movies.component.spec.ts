@@ -11,7 +11,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 describe('MoviesComponent', () => {
   let component: MoviesComponent;
   let fixture: ComponentFixture<MoviesComponent>;
-  let moviesService: MoviesService;
   let movies: MoviesInterface[] = [
     {
       id: 1,
