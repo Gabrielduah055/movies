@@ -8,7 +8,7 @@
         class="cursor-pointer w-6 h-6"
       />
       <input
-        [(ngModel)] = "searchQuery"
+        [(ngModel)]="searchQuery"
         type="text"
         placeholder="Search for series..."
         class="outline-none border-none w-full p-2 text-lg text-white bg-transparent"
@@ -18,7 +18,10 @@
     <div class="container px-4 h-full">
       <h3 class="text-3xl mb-6 font-light">TV Series</h3>
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <div class="card w-72 rounded relative cursor-pointer" *ngFor="let movies of filteredSeries">
+        <div
+          class="card w-72 rounded relative cursor-pointer"
+          *ngFor="let movies of filteredSeries"
+        >
           <div class="overflow-hidden w-full relative">
             <img
               [src]="movies.thumbnail.regular.large"
@@ -42,14 +45,18 @@
             </div>
           </div>
           <div
-          class="w-8 h-8 rounded-full bg-semi-dark-blue absolute top-5 right-4 flex items-center justify-center cursor-pointer"
-          (click)="toggleBookmark(movies)"
-        >
-        <img [src]="movies.isBookmarked ? 'assets/icon-bookmark-full.svg' : 'assets/icon-bookmark-empty.svg'" alt="" class=" " />
             class="w-8 h-8 rounded-full bg-semi-dark-blue absolute top-5 right-4 flex items-center justify-center cursor-pointer"
             (click)="toggleBookmark(movies)"
           >
-          <img [src]="movies.isBookmarked ? 'assets/icon-bookmark-full.svg' : 'assets/icon-bookmark-empty.svg'" alt="" class=" " />
+            <img
+              [src]="
+                movies.isBookmarked
+                  ? 'assets/icon-bookmark-full.svg'
+                  : 'assets/icon-bookmark-empty.svg'
+              "
+              alt=""
+              class=" "
+            />
           </div>
           <div
             class="absolute play flex items-center justify-between gap-3 rounded-3xl w-26 px-3 py-1 transition-all opacity-0"

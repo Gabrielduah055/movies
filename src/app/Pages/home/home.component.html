@@ -15,7 +15,9 @@
           (keyup.enter)="filterMovies()"
         />
       </div>
+     
       <div class="container px-4 h-full">
+        <app-trending></app-trending>
         <h3 class="text-3xl mb-6 font-light">Recommended for you</h3>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <div class="card w-72 rounded relative cursor-pointer" *ngFor="let movie of filteredMovies">

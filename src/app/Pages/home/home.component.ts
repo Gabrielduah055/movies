@@ -4,11 +4,12 @@ import { MoviesService } from '../../Services/movies.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SidebarComponent } from '../../Components/sidebar/sidebar.component';
+import { TrendingComponent } from '../../Components/trending/trending.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, SidebarComponent],
+  imports: [CommonModule, FormsModule, SidebarComponent, TrendingComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
