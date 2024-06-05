@@ -48,10 +48,10 @@
             class="lg:w-8 lg:h-8 w-8 h-8 rounded-full bg-semi-dark-blue absolute top-1 right-1 lg:top-5 lg:right-4 flex items-center justify-center cursor-pointer"
             (click)="toggleBookmark(movies)"
           >
-          <img [src]="movies.isBookmarked  ? 'assets/icon-bookmark-full.svg' : 'assets/icon-bookmark-empty.svg'" alt="" class=" " />
+          <img [src]="movies.isBookmarked ? 'assets/icon-bookmark-full.svg' : 'assets/icon-bookmark-empty.svg'" alt="" class="w-50%" />
           </div>
           <div
-            class="absolute play flex items-center justify-between gap-3 rounded-3xl w-26 px-3 py-1 transition-all opacity-0"
+            class="absolute play flex items-center justify-between top-30% left-50% lg:top-40% lg:left-50% lg:gap-3  rounded-3xl lg:w-26 lg:px-3 py-1 transition-all opacity-0"
           >
             <img src="../../../assets/icon-play.svg" alt="" />
             <span class="text-white opacity-100">Play</span>

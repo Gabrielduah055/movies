@@ -45,6 +45,8 @@ export class MoviesComponent implements OnInit {
  
 
   toggleBookmark(movie: MoviesInterface): void {
+    movie.isBookmarked = !movie.isBookmarked; 
+    
     if(this.isbookMarked(movie)) {
       this.movieService.removeBookmark(movie.id);
       this.bookMarked = this.bookMarked.filter(m => m.id !== movie.id)

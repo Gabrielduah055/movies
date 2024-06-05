@@ -12,9 +12,14 @@ export class MoviesService {
   private bookmarkKey = 'bookmarkedMovies';
   private http = inject(HttpClient);
 
+  private bookmarkedMoviesSource = new BehaviorSubject<MoviesInterface[]>(this.getBookMarksFromLocalStorage() || []);
+  bookmarkedMovies$ = this.bookmarkedMoviesSource.asObservable();
+
   private saveBookmarksToLocalStorage(bookmarkedMovies: MoviesInterface[]): void {
     localStorage.setItem(this.bookmarkKey, JSON.stringify(bookmarkedMovies));
+    this.bookmarkedMoviesSource.next(bookmarkedMovies);
   }
+
 
   getAllMovies():Observable<MoviesInterface[]> {
     return this.http.get<MoviesInterface[]>(this.jsonUrl)
