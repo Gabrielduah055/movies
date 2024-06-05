@@ -15,7 +15,7 @@ export class SidebarComponent {
   router = inject(Router)
 
   navItems = [
-    { path: '/home', icon: 'icon-nav-home.svg', activeIcon: 'shape.svg' },
+    { path: '/home', icon: 'icon-nav-home.svg', activeIcon: 'Shape.svg' },
     { path: '/movies', icon: 'icon-nav-movies.svg', activeIcon: 'movies.svg' },
     { path: '/series', icon: 'icon-nav-tv-series.svg', activeIcon: 'tv.svg' },
     { path: '/bookmark', icon: 'icon-nav-bookmark.svg', activeIcon: 'bookmark.svg' }
