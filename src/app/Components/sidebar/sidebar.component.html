@@ -5,18 +5,11 @@
 
     <div class="flex flex-row  lg:flex-col items-center lg:h-full lg:py-9">
         <div class="flex flex-row items-center justify-center lg:flex-col gap-6">
-            <a routerLink = "/home" routerLinkActive="active">
-                <img src="../../../assets/icon-nav-home.svg " alt="" class="w-5 cursor-pointer">
-            </a>
-            <a routerLink = "/movies" routerLinkActive="active">
-                <img src="../../../assets/icon-nav-movies.svg" alt="" class="w-5 cursor-pointer">
-            </a>
-            <a routerLink = "/series" routerLinkActive="active">
-                <img src="../../../assets/icon-nav-tv-series.svg" alt="" class="w-5 cursor-pointer">
-            </a>
-            <a routerLink = "/bookmark" routerLinkActive="active">
-                <img src="../../../assets/icon-nav-bookmark.svg" alt="" class="w-5 cursor-pointer">
-            </a>
+            <div class="flex flex-row items-center justify-center lg:flex-col gap-6">
+                <a *ngFor="let item of navItems" [routerLink]="item.path" routerLinkActive="active" #rla="routerLinkActive">
+                    <img [src]="'../../../assets/' + (rla.isActive ? item.activeIcon : item.icon)" alt="" class="w-5 cursor-pointer">
+                  </a>
+            </div>
         </div>
     </div>
 
