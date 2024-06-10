@@ -7,7 +7,7 @@
         <div class="flex flex-row items-center justify-center lg:flex-col gap-6">
             <div class="flex flex-row items-center justify-center lg:flex-col gap-6">
                 <a *ngFor="let item of navItems" [routerLink]="item.path" routerLinkActive="active" #rla="routerLinkActive">
-                    <img [src]="'../../../assets/' + (rla.isActive ? item.activeIcon : item.icon)" alt="" class="w-5 cursor-pointer">
+                    <img [src]="hoveredItem === item ? '../../../assets/' + item.hoverIcon : '../../../assets/' + item.icon" alt="" class="w-5 cursor-pointer transition-all " (mouseenter)="hoveredItem = item" (mouseleave)="hoveredItem= null">
                   </a>
             </div>
         </div>
