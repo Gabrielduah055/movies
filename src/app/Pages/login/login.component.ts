@@ -5,12 +5,13 @@ import { Router } from '@angular/router';
 import { emailValidator } from '../../Shared/Validators/email.validator';
 import { password } from '../../Shared/Validators/password.validator';
 import { STORAGE_KEYS } from '../../Shared/constants';
-import { NgIf } from '@angular/common';
+import { NgIf, CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule, NgIf],
+  imports: [RouterLink, ReactiveFormsModule, NgIf, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -57,11 +58,19 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  get email() {
+    return this.loginForm.get('email');
+  }
+
   get emailValid() {
     return (
       this.loginForm.get('email')?.touched &&
       this.loginForm.get('email')?.hasError('email')
     );
+  }
+
+  get password() {
+    return this.loginForm.get('password');
   }
 
   get passwordRequired() {

@@ -21,10 +21,15 @@
             placeholder="enter email"
             formControlName="email"
             class="w-full p-3 bg-transparent outline-none border-b border-b-gray-600 cursor-pointer text-white font-extralight focus:ring-blue-500 hover:border-white outline-0"
+            [ngClass] = "{
+              'border-b-gray-600 hover:border-white': email?.valid || email?.pristine,
+              'border-b-red-600': email?.invalid && email?.touched
+            }"
           />
 
           <small class="text-red-800 absolute end-2.5 bottom-2.5">
             <div *ngIf="emailRequired">Email is required</div>
+            <div *ngIf="emailValid">Email is required</div>
           </small>
         </div>
         <div class="w-full relative">
@@ -32,7 +37,11 @@
             type="password"
             placeholder="enter enter password"
             formControlName="password"
-            class="w-full p-3 bg-transparent outline-none border-b border-b-gray-600 cursor-pointer text-white font-extralight focus:ring-blue-500 hover:border-white outline-0"
+            class="w-full p-3 bg-transparent outline-none border-b border-b-gray-600 cursor-pointer text-white font-extralight focus:ring-blue-500 hover:border-white outline-0 caret-red"
+            [ngClass] = "{
+              'border-b-gray-600 hover:border-white': email?.valid || email?.pristine,
+              'border-b-red-600': email?.invalid && email?.touched
+            }"
           />
 
           <small class="text-red-800 absolute end-2.5 bottom-2.5">
@@ -40,7 +49,7 @@
           </small>
         </div>
 
-        <button type="submit" class="bg-red-btn py-3 text-white mt-6 rounded">
+        <button type="submit" class="bg-red-btn py-3 text-white mt-6 rounded transition-all hover:bg-slate-200 hover:text-slate-600">
           Log to your Account
         </button>
         <span class="text-center text-white text-sm"

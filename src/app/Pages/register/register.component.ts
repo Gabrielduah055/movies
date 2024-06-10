@@ -1,14 +1,12 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { JsonPipe, NgIf } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 
 
 import {
   FormBuilder,
   Validators,
-  ReactiveFormsModule,
-  FormControl,
-  NonNullableFormBuilder,
+  ReactiveFormsModule
 } from '@angular/forms';
 import { PasswordComponent } from '../../Components/password/password.component';
 import { emailValidator } from '../../Shared/Validators/email.validator';
@@ -20,7 +18,7 @@ import { User } from '../../Interface/auth';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink, PasswordComponent, NgIf],
+  imports: [ReactiveFormsModule, RouterLink, PasswordComponent, NgIf, CommonModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
@@ -71,6 +69,17 @@ export class RegisterComponent implements OnInit {
   }
 
 
+  get email() {
+    return this.register.get('email');
+  }
+  
+  get password() {
+    return this.register.get('password');
+  }
+
+  get repeatPassword() {
+    return this.register.get('repeatPassword');
+  }
 
   get emailRequired() {
     return (

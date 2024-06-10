@@ -21,6 +21,10 @@
             formControlName="email"
             placeholder="enter email"
             class="w-full p-3 bg-transparent outline-none border-b border-b-gray-600 cursor-pointer text-white font-extralight focus:ring-blue-500 hover:border-white outline-0"
+            [ngClass]="{
+              'border-b-gray-600 hover:border-white': email?.valid || email?.pristine,
+              'border-b-red-600': email?.invalid && email?.touched
+            }"
           />
           <small class="text-red-800 absolute end-2.5 bottom-2.5">
             <div *ngIf="emailRequired">Email is required</div>
@@ -33,10 +37,14 @@
             formControlName="password"
             placeholder="enter enter password"
             class="w-full p-3 bg-transparent outline-none border-b border-b-gray-600 cursor-pointer text-white font-extralight focus:ring-blue-500 hover:border-white outline-0"
+            [ngClass]="{
+              'border-b-gray-600 hover:border-white': password?.valid || password?.pristine,
+              'border-b-red-600': password?.invalid && password?.touched
+            }"
           />
-
           <small class="text-red-800 absolute end-2.5 bottom-2.5">
-            <div *ngIf="passwordRequired">can't be empty</div>
+            <div *ngIf="emailRequired">Email is required</div>
+            <div *ngIf="emailValid">Email is invalid</div>
           </small>
         </div>
 
@@ -46,6 +54,10 @@
           formControlName="repeatPassword"
           placeholder="repeat password"
           class="w-full p-3 bg-transparent outline-none border-b border-b-gray-600 cursor-pointer text-white font-extralight focus:ring-blue-500 hover:border-white outline-0"
+          [ngClass]="{
+            'border-b-gray-600 hover:border-white': password?.valid || password?.pristine,
+            'border-b-red-600': password?.invalid && password?.touched
+          }"
         />
         <small class="text-red-800 absolute end-2.5 bottom-2.5 ">
           <div *ngIf="passwordRepeat">Mismatch password</div>
@@ -53,7 +65,7 @@
         </small>
         </div>
         
-        <button type="submit" class="bg-red-btn py-3 text-white mt-6 rounded">
+        <button type="submit" class="bg-red-btn py-3 text-white mt-6 rounded transition-all hover:bg-slate-200 hover:text-slate-600">
           Create an Account
         </button>
         <span class="text-center text-white text-sm"

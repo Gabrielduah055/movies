@@ -11,7 +11,8 @@ module.exports = {
         'red-btn': '#FC4747',
         'off-secondary': '#D31FCC',
         'text-color': '#9197B3',
-        'off-Green' : '#D3FFE7'
+        'off-Green' : '#D3FFE7',
+        'red-caret':'#FC4747'
       },
       spacing: {
         '3%' : '3%',
@@ -31,6 +32,14 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    function({addUtilities}) {
+      addUtilities({
+        '.cared-red': {
+          'caret-color':'#FC4747',
+        }
+      }, ['responsive', 'hover', 'focus']);
+    }
+  ],
 }
 
